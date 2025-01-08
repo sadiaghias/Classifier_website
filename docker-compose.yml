@@ -1,0 +1,15 @@
+version: '3.8' # docker-compose file version
+
+services:
+  app:
+    image: classifier_website-flask-app  # Replace with the actual image name if different
+    build:
+      context: .  # This assumes Dockerfile is in the same directory
+      dockerfile: Dockerfile  # Specify the Dockerfile if it's named differently
+    ports:
+      - 5000:5000  # Maps port 5000 on the host to port 5000 in the container
+    volumes:
+      - .:/app  # Mounts the current directory to /app in the container
+    environment:
+      - FLASK_ENV=development  # Optional: Set Flask environment variables if needed
+    command: python app.py  # Replace with the entry point of your app

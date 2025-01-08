@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image for Prediction</title>
+    <style>
+        /* Style for the body to center everything */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;  /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container for the form */
+        .container {
+            background-color: #ffffff;  /* White background for the form */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333;  /* Dark text color for the header */
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #444444;  /* Slightly lighter text color for subheaders */
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+            color: #555555;  /* Light gray text for labels */
+        }
+
+        input[type="file"],
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;  /* Blue background for the submit button */
+            color: #ffffff;  /* White text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;  /* Darker blue when hovered */
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .error {
+            color: red;  /* Red color for error messages */
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload Image for Prediction</h1>
+
+        <!-- Option 1: Upload Image from Machine -->
+        <h3>Option 1: Upload from your machine</h3>
+        <form action="/upload-file" method="POST" enctype="multipart/form-data">
+            <label for="images">Choose an image to upload:</label>
+            <input type="file" name="images" id="images" accept="image/*" required>
+            <br><br>
+            <input type="submit" value="Upload">
+        </form>
+
+        <hr>
+
+        <!-- Option 2: Provide Image URL -->
+        <h3>Option 2: Provide Image URL</h3>
+        <form action="/upload-url" method="POST">
+            <label for="image_url">Enter Image URL:</label>
+            <input type="text" name="image_url" id="image_url" placeholder="https://example.com/image.jpg" required>
+            <br><br>
+            <input type="submit" value="Submit URL">
+        </form>
+    </div>
+
+</body>
+</html>
